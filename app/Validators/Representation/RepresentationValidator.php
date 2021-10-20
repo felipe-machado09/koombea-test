@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Validators\Contacts;
+namespace App\Validators\Representation;
 
-class ContactsValidator
+class RepresentationValidator
 {
     public const ERROR_MESSAGES = [
         'required'       => 'The field :attribute is required',
+        'integer'       => 'The field :attribute must be integer.',
         'max'            => 'O :attribute deve ter no máximo :max caracteres',
         'min'            => 'O :attribute deve ter no mínimo :min caracteres',
         'regex'          => 'Name must contain letters, numbers, -',
@@ -13,11 +14,6 @@ class ContactsValidator
     ];
 
     public const NEW_PACKAGE_RULE = [
-        'name' => 'required|regex:^([a-z0-9\s\-]+)$^',
-        'date_of_birth' => 'required|date_format:Y-m-d',
-        'address' => 'required',
-        'phone' => 'required',
-        'credit_card' => 'required',
-        'email' => 'required|unique:contacts,email'
+        'n' => 'required|integer',
     ];
 }

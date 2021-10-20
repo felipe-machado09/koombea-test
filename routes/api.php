@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\User\UserController;
 use App\Http\Controllers\Api\Contact\ContactController;
+use App\Http\Controllers\Api\Representation\RepresentationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,21 +31,7 @@ $router->group(['prefix'=>'v1','as'=>'v1.'], function() use ($router){
 
         $router->post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
 
-         /*
-        |--------------------------------------------------------------------------
-        | Route Users Api
-        |--------------------------------------------------------------------------
-        */
-        $router
-        ->prefix('users')
-        ->name('users.')
-        ->group(function () use ($router) {
-            $router->get('/', [UserController::class, 'index'])->name('index');
-            $router->get('/{id}', [UserController::class, 'show'])->name('show');
-            $router->post('/store', [UserController::class, 'store'])->name('store');
-            $router->put('/update/{id}', [UserController::class, 'update'])->name('update');
-            $router->delete('/delete/{id}', [UserController::class, 'destroy'])->name('delete');
-        });
+
 
         /*
         |--------------------------------------------------------------------------
@@ -52,13 +39,10 @@ $router->group(['prefix'=>'v1','as'=>'v1.'], function() use ($router){
         |--------------------------------------------------------------------------
         */
         $router
-        ->prefix('contacts')
-        ->name('contacts.')
+        ->prefix('representation')
+        ->name('representation.')
         ->group(function () use ($router) {
-            $router->get('/', [ContactController::class, 'index'])->name('index');
-            $router->post('/store', [ContactController::class, 'store'])->name('store');
-            $router->post('/import', [ContactController::class, 'import'])->name('import');
-
+            $router->get('/', [RepresentationController::class, 'index'])->name('index');
         });
 
 

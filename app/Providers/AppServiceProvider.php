@@ -32,8 +32,8 @@ class AppServiceProvider extends ServiceProvider
 
         // Binding Contact
         $this->app->bind(
-            \App\Repositories\Contacts\ContactsRepositoryInterface::class,
-            \App\Repositories\Contacts\ContactsRepositoryEloquent::class,
+            \App\Repositories\Representation\RepresentationRepositoryInterface::class,
+            \App\Repositories\Representation\RepresentationRepositoryEloquent::class,
         );
 
     }
